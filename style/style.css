@@ -1,12 +1,59 @@
+@keyframes neonBorderEffect {
+    0%, 100% {
+        box-shadow: 0 0 5px #333, 0 0 10px #333, 0 0 20px #60d4ea, 0 0 30px #9ae5f3, 0 0 40px #9ae5f3, 0 0 55px #9ae5f3, 0 0 75px #9ae5f3;
+    }
+
+    50% {
+        box-shadow: 0 0 5px #2e6a78, 0 0 10px #2e6a78, 0 0 20px #2e6a78, 0 0 30px #2e6a78, 0 0 40px #2e6a78, 0 0 55px #2e6a78, 0 0 75px #2e6a78;
+
+    }
+}
+
+
 .containerImg {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     position: relative;
     border-radius: 100%;
     overflow: hidden;
     display: inline-block;
     margin: 0;
     padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 0;
     background-color: #000;
+}
+
+.containerImg:hover {
+    animation: neonBorderEffect 2s infinite alternate;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+#dynamicContent {
+    width: 100%;
+}
+
+.containerImg img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.containerImg img:hover {
+    transform: scale(1.05);
+}
+
+html {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.modal {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
 }
